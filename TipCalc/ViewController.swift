@@ -33,6 +33,7 @@ class ViewController: UIViewController  {
         totalLabel.text = getCurrency(total)
         tipLabel.text = getCurrency(tip)
         billField.becomeFirstResponder()
+        
         tipPercentages = updatedPercent.arrayForKey("tips")! as! [Int]
         let seg = stringArr(tipPercentages)
         tipControl.removeAllSegments()
@@ -46,6 +47,17 @@ class ViewController: UIViewController  {
         self.title = "Tip Calculator"
         
         
+    }
+    override func viewWillAppear(animated: Bool) {
+        
+        tipPercentages = updatedPercent.arrayForKey("tips")! as! [Int]
+        let seg = stringArr(tipPercentages)
+        tipControl.removeAllSegments()
+        for index in 0...2 {
+            tipControl.insertSegmentWithTitle(seg[index], atIndex:index , animated: false)
+            
+        }
+        tipControl.selectedSegmentIndex=0
     }
 
     override func didReceiveMemoryWarning() {
