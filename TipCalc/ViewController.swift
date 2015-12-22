@@ -86,10 +86,12 @@ class ViewController: UIViewController  {
     func getCurrency(amount:Double)-> String {
         
         let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.locale = NSLocale.currentLocale()
         return formatter.stringFromNumber(amount)!
         
+        
+       
     }
     func stringArr(arr:[Int]) -> [String]{
         
